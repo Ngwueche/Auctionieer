@@ -1,7 +1,10 @@
 ﻿using Auctionieer.Models.Entities;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Auctionieer.Domain.Models;
-
+[Table("Items")]
 public class Item : Entity
 {
     public string Make { get; set; } = string.Empty;
@@ -12,6 +15,8 @@ public class Item : Entity
     public string ImageUrl { get; set; } = string.Empty;
 
     //nav properties
+    [ForeignKey("AuctionId")]
+    [ValidateNever]
     public Auction Auction { get; set; }
-    public Guid AuctionId { get; set; }
+    public string AuctionId { get; set; }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auctionieer", "Auctionieer\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auctionieer.Domain", "Auctionieer.Models\Auctionieer.Domain.csproj", "{048FE451-0E81-419F-B014-66C0B235FDCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auctionieer.Data", "Auctionieer.Data\Auctionieer.Data.csproj", "{D0004149-51E7-4428-B165-B63AC0510F97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{048FE451-0E81-419F-B014-66C0B235FDCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{048FE451-0E81-419F-B014-66C0B235FDCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{048FE451-0E81-419F-B014-66C0B235FDCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0004149-51E7-4428-B165-B63AC0510F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0004149-51E7-4428-B165-B63AC0510F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0004149-51E7-4428-B165-B63AC0510F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0004149-51E7-4428-B165-B63AC0510F97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
