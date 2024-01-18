@@ -18,5 +18,5 @@ public class Item : Entity
     [ForeignKey("AuctionId")]
     [ValidateNever]
     public Auction Auction { get; set; }
-    public string AuctionId { get; set; }
+    public Guid AuctionId { get; set; }
 }

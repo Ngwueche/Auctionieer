@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Auctionieer.Data.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    [Migration("20240118002628_First")]
+    [Migration("20240118025732_First")]
     partial class First
     {
         /// <inheritdoc />
@@ -27,11 +27,12 @@ namespace Auctionieer.Data.Migrations
 
             modelBuilder.Entity("Auctionieer.Domain.Models.Item", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
 
-                    b.Property<string>("AuctionId")
-                        .HasColumnType("text");
+                    b.Property<Guid>("AuctionId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Color")
                         .HasColumnType("text");
@@ -61,8 +62,9 @@ namespace Auctionieer.Data.Migrations
 
             modelBuilder.Entity("Auctionieer.Models.Entities.Auction", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("AuctionEnd")
                         .HasColumnType("timestamp with time zone");
@@ -100,7 +102,9 @@ namespace Auctionieer.Data.Migrations
                 {
                     b.HasOne("Auctionieer.Models.Entities.Auction", "Auction")
                         .WithOne("Item")
-                        .HasForeignKey("Auctionieer.Domain.Models.Item", "AuctionId");
+                        .HasForeignKey("Auctionieer.Domain.Models.Item", "AuctionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Auction");
                 });

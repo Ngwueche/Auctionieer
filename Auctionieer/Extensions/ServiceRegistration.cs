@@ -8,11 +8,7 @@ namespace Auctionieer.Extensions
         public static void AddServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<AuctionDbContext>(options =>
-                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection"),
-                optionsBuilder =>
-                {
-                    optionsBuilder.MigrationsAssembly(typeof(AuctionDbContext).Assembly.GetName().Name);
-                }));
+                options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
         }
     }
 }

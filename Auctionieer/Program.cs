@@ -1,3 +1,4 @@
+using Auctionieer.Data;
 using Auctionieer.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,5 +25,15 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+try
+{
+    DbInitializer.InitDb(app);
+    Console.WriteLine("Executed");
+}
+catch (Exception e)
+{
+
+    Console.WriteLine(e.Message);
+}
 
 app.Run();
