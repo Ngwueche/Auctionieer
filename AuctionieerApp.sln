@@ -3,11 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auctionieer", "Auctionieer\Auctionieer.csproj", "{0ACFD1BC-8D2C-457F-9621-AFB03251CC84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctionieer.Api", "Auctionieer\Auctionieer.Api.csproj", "{0ACFD1BC-8D2C-457F-9621-AFB03251CC84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auctionieer.Domain", "Auctionieer.Models\Auctionieer.Domain.csproj", "{048FE451-0E81-419F-B014-66C0B235FDCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctionieer.Domain", "Auctionieer.Models\Auctionieer.Domain.csproj", "{048FE451-0E81-419F-B014-66C0B235FDCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auctionieer.Data", "Auctionieer.Data\Auctionieer.Data.csproj", "{D0004149-51E7-4428-B165-B63AC0510F97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctionieer.Data", "Auctionieer.Data\Auctionieer.Data.csproj", "{D0004149-51E7-4428-B165-B63AC0510F97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actionieer.Core", "Actionieer.Core\Actionieer.Core.csproj", "{EC617D3C-307E-48D4-92ED-17FE0144FD11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actionieer.Infrastructure", "Actionieer.Infrastructure\Actionieer.Infrastructure.csproj", "{A84FC425-311E-4E21-A435-9C8526E46E93}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2947760C-4BCC-4BE2-9176-F434E484991F}"
+	ProjectSection(SolutionItems) = preProject
+		docker.compose.yml = docker.compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +36,14 @@ Global
 		{D0004149-51E7-4428-B165-B63AC0510F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0004149-51E7-4428-B165-B63AC0510F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0004149-51E7-4428-B165-B63AC0510F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC617D3C-307E-48D4-92ED-17FE0144FD11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC617D3C-307E-48D4-92ED-17FE0144FD11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC617D3C-307E-48D4-92ED-17FE0144FD11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC617D3C-307E-48D4-92ED-17FE0144FD11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A84FC425-311E-4E21-A435-9C8526E46E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84FC425-311E-4E21-A435-9C8526E46E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84FC425-311E-4E21-A435-9C8526E46E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84FC425-311E-4E21-A435-9C8526E46E93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
