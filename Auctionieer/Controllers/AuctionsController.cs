@@ -37,16 +37,16 @@ namespace Auctionieer.Api.Controllers
             return NotFound();
         }
 
-        //[HttpPost( "create" )]
-        //public async Task<ActionResult<AuctionDto>> Create( CreateAuctionDto createAuction )
-        //{
-        //    Auction auction = await _context.Auctions.FindAsync( createAuction.Id );
-        //    if (auction != null) return BadRequest( "Auction already exist" );
-        //    if (ModelState.IsValid)
-        //    {
-        //        var mapAuction = _mapper.Map<CreateAuctionDto>( AuctionDto );
+        [HttpPost( "create" )]
+        public async Task<ActionResult<AuctionDto>> Create( CreateAuctionDto createAuction )
+        {
+            Auction auction = await _context.Auctions.FindAsync( createAuction.Id );
+            if (auction != null) return BadRequest( "Auction already exist" );
+            if (ModelState.IsValid)
+            {
+                var mapAuction = _mapper.Map<CreateAuctionDto>( AuctionDto );
 
-        //    }
-        //}
+            }
+        }
     }
 }
