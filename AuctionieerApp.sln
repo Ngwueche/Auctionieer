@@ -9,14 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctionieer.Domain", "Aucti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctionieer.Data", "Auctionieer.Data\Auctionieer.Data.csproj", "{D0004149-51E7-4428-B165-B63AC0510F97}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actionieer.Core", "Actionieer.Core\Actionieer.Core.csproj", "{EC617D3C-307E-48D4-92ED-17FE0144FD11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctionieer.Core", "Actionieer.Core\Auctionieer.Core.csproj", "{EC617D3C-307E-48D4-92ED-17FE0144FD11}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actionieer.Infrastructure", "Actionieer.Infrastructure\Actionieer.Infrastructure.csproj", "{A84FC425-311E-4E21-A435-9C8526E46E93}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2947760C-4BCC-4BE2-9176-F434E484991F}"
-	ProjectSection(SolutionItems) = preProject
-		docker.compose.yml = docker.compose.yml
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctionieer.Infrastructure", "Actionieer.Infrastructure\Auctionieer.Infrastructure.csproj", "{A84FC425-311E-4E21-A435-9C8526E46E93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

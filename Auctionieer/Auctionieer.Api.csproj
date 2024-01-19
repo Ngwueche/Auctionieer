@@ -25,11 +25,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\Actionieer.Infrastructure\Auctionieer.Infrastructure.csproj" />
+    <ProjectReference Include="..\Auctionieer.Data\Auctionieer.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Auctionieer.Data\Auctionieer.Data.csproj" />
+    <EditorConfigFiles Remove="C:\Users\DECAGON\Desktop\AuctionieerApp\Auctionieer\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="C:\Users\DECAGON\Desktop\AuctionieerApp\Auctionieer\.editorconfig" />
   </ItemGroup>
 
 </Project>

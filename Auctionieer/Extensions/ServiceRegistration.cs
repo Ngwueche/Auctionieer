@@ -9,6 +9,8 @@ namespace Auctionieer.Extensions
         {
             services.AddDbContext<AuctionDbContext>(options =>
                 options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
     }
 }
