@@ -28,25 +28,25 @@ namespace Auctionieer.Api.Controllers
             return NotFound();
         }
 
-        //[HttpGet( "{id}" )]
-        //public async Task<ActionResult<AuctionDto>> GetById( Guid id )
-        //{
-        //    Auction auctions = await _context.Auctions.Include( x => x.Item ).FirstOrDefaultAsync( x => x.Id == id );
+        [HttpGet( "{id}" )]
+        public async Task<ActionResult<AuctionDto>> GetById( Guid id )
+        {
+            Auction auctions = await _context.Auctions.Include( x => x.Item ).FirstOrDefaultAsync( x => x.Id == id );
 
-        //    if (auctions != null) return _mapper.Map<AuctionDto>( auctions );
-        //    return NotFound();
-        //}
+            if (auctions != null) return _mapper.Map<AuctionDto>( auctions );
+            return NotFound();
+        }
 
-        //[HttpPost( "create" )]
-        //public async Task<ActionResult<AuctionDto>> Create( CreateAuctionDto createAuction )
-        //{
-        //    Auction auction = await _context.Auctions.FindAsync( createAuction.Id );
-        //    if (auction != null) return BadRequest( "Auction already exist" );
-        //    if (ModelState.IsValid)
-        //    {
-        //        var mapAuction = _mapper.Map<CreateAuctionDto>( AuctionDto );
+        [HttpPost( "create" )]
+        public async Task<ActionResult<AuctionDto>> Create( CreateAuctionDto createAuction )
+        {
+            Auction auction = await _context.Auctions.FindAsync( createAuction.Id );
+            if (auction != null) return BadRequest( "Auction already exist" );
+            if (ModelState.IsValid)
+            {
+                var mapAuction = _mapper.Map<CreateAuctionDto>( AuctionDto );
 
-        //    }
-        //}
+            }
+        }
     }
 }
