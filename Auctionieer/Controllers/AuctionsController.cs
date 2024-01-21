@@ -44,9 +44,13 @@ namespace Auctionieer.Api.Controllers
             if (auction != null) return BadRequest( "Auction already exist" );
             if (ModelState.IsValid)
             {
-                var mapAuction = _mapper.Map<CreateAuctionDto>( AuctionDto );
-
+                var mapAuction = _mapper.Map<Auction>( createAuction );
+                _context.Auctions.Add( mapAuction );
             }
+            var result = await _context.SaveChangesAsync() > 0;
+            if (!result) return BadRequest( "Could not save changes to DB" );
+
+            return CreatedAtAction( nameof( GetById ), new { auction.Id }, _mapper.Map<AuctionDto>( auction ) );
         }
     }
 }
