@@ -52,5 +52,20 @@ namespace Auctionieer.Api.Controllers
 
             return CreatedAtAction( nameof( GetById ), new { auction.Id }, _mapper.Map<AuctionDto>( auction ) );
         }
+        [HttpPost( "delete" )]
+        public async Task<ActionResult<AuctionDto>> Delete( CreateAuctionDto createAuction )
+        {
+            Auction auction = await _context.Auctions.FindAsync( createAuction.Id );
+            if (auction != null) return BadRequest( "Auction already exist" );
+            if (ModelState.IsValid)
+            {
+                var mapAuction = _mapper.Map<Auction>( createAuction );
+                _context.Auctions.Add( mapAuction );
+            }
+            var result = await _context.SaveChangesAsync() > 0;
+            if (!result) return BadRequest( "Could not save changes to DB" );
+
+            return CreatedAtAction( nameof( GetById ), new { auction.Id }, _mapper.Map<AuctionDto>( auction ) );
+        }
     }
 }
