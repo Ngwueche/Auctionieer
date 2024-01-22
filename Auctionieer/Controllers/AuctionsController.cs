@@ -38,7 +38,7 @@ namespace Auctionieer.Api.Controllers
         }
 
         [HttpPost( "create" )]
-        public async Task<ActionResult<AuctionDto>> Create( CreateAuctionDto createAuction )
+        public async Task<ActionResult<AuctionDto>> CreateAuction( CreateAuctionDto createAuction )
         {
             Auction auction = await _context.Auctions.FindAsync( createAuction.Id );
             if (auction != null) return BadRequest( "Auction already exist" );
@@ -52,20 +52,36 @@ namespace Auctionieer.Api.Controllers
 
             return CreatedAtAction( nameof( GetById ), new { auction.Id }, _mapper.Map<AuctionDto>( auction ) );
         }
-        [HttpPost( "delete" )]
-        public async Task<ActionResult<AuctionDto>> Delete( CreateAuctionDto createAuction )
+        [HttpPost( "{id}" )]
+        public async Task<ActionResult> UpdateAuction( Guid id, UpdateAuctionDto updateAuctionDto )
         {
-            Auction auction = await _context.Auctions.FindAsync( createAuction.Id );
-            if (auction != null) return BadRequest( "Auction already exist" );
-            if (ModelState.IsValid)
+            var auction = await _context.Auctions.Include( v => v.Id == id ).FirstOrDefaultAsync();
+            if (auction != null)
             {
-                var mapAuction = _mapper.Map<Auction>( createAuction );
-                _context.Auctions.Add( mapAuction );
-            }
-            var result = await _context.SaveChangesAsync() > 0;
-            if (!result) return BadRequest( "Could not save changes to DB" );
+                auction.Item.Make = updateAuctionDto.Make ?? auction.Item.Make;
+                auction.Item.Model = updateAuctionDto.Model ?? auction.Item.Model;
+                auction.Item.Year = updateAuctionDto.Year ?? auction.Item.Year;
+                auction.Item.Color = updateAuctionDto.Color ?? auction.Item.Color;
+                auction.Item.Mileage = updateAuctionDto.Mileage ?? auction.Item.Mileage;
 
-            return CreatedAtAction( nameof( GetById ), new { auction.Id }, _mapper.Map<AuctionDto>( auction ) );
+                var result = await _context.SaveChangesAsync() > 0;
+                if (!result) return BadRequest( "Error saving Update" );
+                return Ok();
+            }
+            return NotFound();
+        }
+
+        [HttpDelete( " {id}" )]
+        public async Task<ActionResult> DeleteAuction( Guid id )
+        {
+            Auction auction = await _context.Auctions.FirstOrDefaultAsync( x => x.Id == id );
+            if (auction == null) return BadRequest( NotFound() );
+
+            //TODO: check seller == username
+            _context.Auctions.Remove( auction );
+            var result = await _context.SaveChangesAsync() > 0;
+            if (!result) return BadRequest( "Error saving Update" );
+            return Ok();
         }
     }
 }
