@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctionieer.Core", "Actioni
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctionieer.Infrastructure", "Actionieer.Infrastructure\Auctionieer.Infrastructure.csproj", "{A84FC425-311E-4E21-A435-9C8526E46E93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchService", "SearchService\SearchService.csproj", "{50E57B5A-ABB9-402D-99D0-AD092B493CB4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchService", "SearchService\SearchService.csproj", "{029FAFD4-436F-462B-9D0F-D0494293BD9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{A84FC425-311E-4E21-A435-9C8526E46E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A84FC425-311E-4E21-A435-9C8526E46E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A84FC425-311E-4E21-A435-9C8526E46E93}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50E57B5A-ABB9-402D-99D0-AD092B493CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50E57B5A-ABB9-402D-99D0-AD092B493CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50E57B5A-ABB9-402D-99D0-AD092B493CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50E57B5A-ABB9-402D-99D0-AD092B493CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{029FAFD4-436F-462B-9D0F-D0494293BD9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{029FAFD4-436F-462B-9D0F-D0494293BD9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{029FAFD4-436F-462B-9D0F-D0494293BD9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{029FAFD4-436F-462B-9D0F-D0494293BD9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
