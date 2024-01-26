@@ -33,8 +33,4 @@
     <EditorConfigFiles Remove="C:\Users\DECAGON\Desktop\AuctionieerApp\Auctionieer\.editorconfig" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="C:\Users\DECAGON\Desktop\AuctionieerApp\Auctionieer\.editorconfig" />
-  </ItemGroup>
-
 </Project>
