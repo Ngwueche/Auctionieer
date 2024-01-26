@@ -1,5 +1,6 @@
 using MongoDB.Driver;
 using MongoDB.Entities;
+using SearchService.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,5 +20,15 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+try
+{
+    await DbInitializer.InitDb(app);
+}
+catch (Exception e)
+{
+
+    Console.WriteLine(e); ;
+}
 
 app.Run();
