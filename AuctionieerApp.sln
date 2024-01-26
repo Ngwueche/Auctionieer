@@ -13,7 +13,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctionieer.Core", "Actioni
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auctionieer.Infrastructure", "Actionieer.Infrastructure\Auctionieer.Infrastructure.csproj", "{A84FC425-311E-4E21-A435-9C8526E46E93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchService", "SearchService\SearchService.csproj", "{029FAFD4-436F-462B-9D0F-D0494293BD9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchService", "SearchService\SearchService.csproj", "{029FAFD4-436F-462B-9D0F-D0494293BD9E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuctionService", "AuctionService", "{AC77D0E3-1F3A-4F4B-A571-40795AC0378C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Search", "Search", "{B50D3150-771C-4CF8-83B5-C93A426CF424}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{12BE3FC7-CB98-4216-81EC-806ACAA1E340}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +57,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0ACFD1BC-8D2C-457F-9621-AFB03251CC84} = {AC77D0E3-1F3A-4F4B-A571-40795AC0378C}
+		{048FE451-0E81-419F-B014-66C0B235FDCE} = {AC77D0E3-1F3A-4F4B-A571-40795AC0378C}
+		{D0004149-51E7-4428-B165-B63AC0510F97} = {AC77D0E3-1F3A-4F4B-A571-40795AC0378C}
+		{EC617D3C-307E-48D4-92ED-17FE0144FD11} = {AC77D0E3-1F3A-4F4B-A571-40795AC0378C}
+		{A84FC425-311E-4E21-A435-9C8526E46E93} = {AC77D0E3-1F3A-4F4B-A571-40795AC0378C}
+		{029FAFD4-436F-462B-9D0F-D0494293BD9E} = {B50D3150-771C-4CF8-83B5-C93A426CF424}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7911C67E-50DF-45CA-8EB6-01AA623149AA}
