@@ -25,7 +25,8 @@ namespace SearchService.Data
 
             Console.WriteLine(items.Count + "returned from auction service");
 
-            if (items.Count > 0) await DB.SaveAsync(items);
+            if (items.Count < 1) Console.WriteLine("Seeding Failed");
+            await DB.SaveAsync(items);
 
             //MONGODB SEEDER
             //if (count == 0)

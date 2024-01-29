@@ -13,7 +13,7 @@ builder.Services.AddHttpClient<AuctionServiceHTTPClient>();
 builder.Services.AddEndpointsApiExplorer();
 
 
-await DB.InitAsync("SearchDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("MongoDbConnection")));
+await DB.InitAsync("SearchDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("MongoDbConnection"))); //something is wrong HERE
 var app = builder.Build();
 
 
