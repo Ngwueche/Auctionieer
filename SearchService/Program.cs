@@ -3,6 +3,7 @@ using MongoDB.Entities;
 using Polly;
 using Polly.Extensions.Http;
 using SearchService.Data;
+using SearchService.Extensions;
 using SearchService.Services;
 using System.Net;
 
@@ -14,6 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddHttpClient<AuctionServiceHTTPClient>().AddPolicyHandler(GetPolicy());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddServices(builder.Configuration);
 
 
 await DB.InitAsync("SearchDb", MongoClientSettings.FromConnectionString(builder.Configuration.GetConnectionString("MongoDbConnection"))); //something is wrong HERE
