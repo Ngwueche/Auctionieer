@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Actionieer.Core\Auctionieer.Core.csproj" />
     <ProjectReference Include="..\Auctionieer.Models\Auctionieer.Domain.csproj" />
+    <ProjectReference Include="..\ServiceContract\ServiceContract\ServiceContract.csproj" />
   </ItemGroup>
 
 </Project>

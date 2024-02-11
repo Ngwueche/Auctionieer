@@ -3,8 +3,10 @@ using Auctionieer.Data;
 using Auctionieer.Models.Entities;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ServiceContract;
 
 namespace Auctionieer.Api.Controllers
 {
@@ -14,11 +16,13 @@ namespace Auctionieer.Api.Controllers
     {
         private readonly AuctionDbContext _context;
         private readonly IMapper _mapper;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public AuctionsController(AuctionDbContext context, IMapper mapper)
+        public AuctionsController(AuctionDbContext context, IMapper mapper, IPublishEndpoint publishEndpoint)
         {
             _context = context;
             _mapper = mapper;
+            _publishEndpoint = publishEndpoint;
         }
         [HttpGet("auctions")]
         public async Task<ActionResult<List<AuctionDto>>> GetAll(string date)
@@ -49,20 +53,24 @@ namespace Auctionieer.Api.Controllers
         }
 
         [HttpPost("create")]
-        public async Task<ActionResult<AuctionDto>> CreateAuction(CreateAuctionDto createAuction)
+        public async Task<ActionResult<AuctionDto>> CreateAuction(CreateAuctionDto auctionDto)
         {
-            Auction auction = await _context.Auctions.FindAsync(createAuction.Id);
+            var auction = await _context.Auctions.FindAsync(auctionDto.Id);
             if (auction != null) return BadRequest("Auction already exist");
-            if (ModelState.IsValid)
-            {
-                var mapAuction = _mapper.Map<Auction>(createAuction);
-                _context.Auctions.Add(mapAuction);
-            }
+            if (!ModelState.IsValid)
+                 return CreatedAtAction(nameof(GetById), new { auction.Id }, _mapper.Map<AuctionDto>(auction));
+            var mapAuction = _mapper.Map<Auction>(auctionDto);
+            _context.Auctions.Add(mapAuction);
+            
             var result = await _context.SaveChangesAsync() > 0;
+            var newAuction = _mapper.Map<AuctionDto>(mapAuction);
+                
+            await _publishEndpoint.Publish(_mapper.Map<AuctionCreated>(newAuction));
             if (!result) return BadRequest("Could not save changes to DB");
 
             return CreatedAtAction(nameof(GetById), new { auction.Id }, _mapper.Map<AuctionDto>(auction));
         }
+        
         [HttpPost("{id}")]
         public async Task<ActionResult> UpdateAuction(Guid id, UpdateAuctionDto updateAuctionDto)
         {

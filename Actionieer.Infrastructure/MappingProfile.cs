@@ -2,6 +2,7 @@
 using Auctionieer.Domain.Models;
 using Auctionieer.Models.Entities;
 using AutoMapper;
+using ServiceContract;
 
 namespace Auctionieer.Infrastructure
 {
@@ -13,6 +14,8 @@ namespace Auctionieer.Infrastructure
             CreateMap<Item, AuctionDto>();
             CreateMap<CreateAuctionDto, Auction>()
                 .ForMember(d => d.Item, o => o.MapFrom(s => s));
+            CreateMap<CreateAuctionDto, Item>();
+            CreateMap<AuctionDto, AuctionCreated>();
         }
     }
 }
